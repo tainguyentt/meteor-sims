@@ -1,0 +1,28 @@
+<template name="productList">
+    <div class="pull-right">
+        <button id="create-product" type="button" class="btn btn-primary" data-toggle="modal">Create Product</button>
+    </div>
+    <div class="wrapper food-list">
+        <h2>Products</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Group</th>
+                    <th>Cost</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{group}}</td>
+                    <td>{{cost}}</td>
+                    <td>{{price}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
