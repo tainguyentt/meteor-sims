@@ -8,21 +8,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{pathFor 'homePage'}}">SIMS</a>
+                <a class="navbar-brand" href="{{pathFor 'homePage'}}">Ngẫm Cafe</a>
             </div>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav">
-                    <li class="{{isActiveRoute 'tableList'}}">
-                        <a href="{{pathFor 'tableList'}}">Tables</a>
-                    </li>
-                    <li class="{{isActiveRoute 'productList'}}">
-                        <a href="{{pathFor 'productList'}}">Products</a>
-                    </li>
-                    <li>
-                        <a href="{{pathFor 'productList'}}">Sale</a>
+                    <li class="{{isActiveRoute 'sale'}}">
+                        <a href="{{pathFor 'sale'}}">Bán hàng</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown {{isActiveRoute regex='tableList|productList'}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lí <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="{{isActiveRoute 'tableList'}}">
+                                <a href="{{pathFor 'tableList'}}">Bàn</a>
+                            </li>
+                            <li class="{{isActiveRoute 'productList'}}">
+                                <a href="{{pathFor 'productList'}}">Sản phẩm</a>
+                            </li>
+                        </ul>
+                    </li>
                     {{> loginButtons}}
                 </ul>
             </div>

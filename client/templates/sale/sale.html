@@ -1,0 +1,36 @@
+<template name="sale">
+    <div class="col-md-7">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">Bàn</a></li>
+                        <li role="presentation"><a href="#products" aria-controls="products" role="tab" data-toggle="tab">Món</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active sale-table-container" id="tables">
+                            <br /> {{#each tables}}
+                            <div class="sale-table">{{name}}</div>
+                            {{/each}}
+                        </div>
+                        <div role="tabpanel" class="tab-pane sale-product-container" id="products">
+                            <br /> {{#each products}}
+                            <div class="sale-product">{{name}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">Hoá đơn - Bàn số 1</div>
+            <div class="panel-body">
+                Hóa đơn
+            </div>
+        </div>
+    </div>
+</template>

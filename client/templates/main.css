@@ -1,0 +1,18 @@
+.sale-table , .sale-product{
+  max-width: 100px;
+  min-width: 100px;
+  height: 100px;
+  background-color: blue;
+  flex: 1;
+  margin: 10px;
+}
+
+.sale-product {
+  background-color: green;
+}
+
+.sale-table-container, .product-table-container {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
