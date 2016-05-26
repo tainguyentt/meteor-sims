@@ -11,7 +11,7 @@
   background-color: green;
 }
 
-.sale-table-container, .product-table-container {
+.sale-table-container, .sale-product-container {
   display: flex !important;
   flex-wrap: wrap;
 }
