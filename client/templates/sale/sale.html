@@ -1,35 +1,47 @@
 <template name="sale">
-    <div class="col-md-7">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div>
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">Bàn</a></li>
-                        <li role="presentation"><a href="#products" aria-controls="products" role="tab" data-toggle="tab">Món</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active sale-table-container" id="tables">
-                            <br /> {{#each tables}}
-                            <div class="sale-table">{{name}}</div>
-                            {{/each}}
-                        </div>
-                        <div role="tabpanel" class="tab-pane sale-product-container" id="products">
-                            <br /> {{#each products}}
-                            <div class="sale-product">{{name}}</div>
-                            {{/each}}
+    <div class="row">
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#sale-tables-tab" aria-controls="sale-tables-tab" role="tab" data-toggle="tab">Bàn</a></li>
+                            <li role="presentation"><a href="#sale-products-tab" aria-controls="sale-products-tab" role="tab" data-toggle="tab">Món</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active sale-table-container" id="sale-tables-tab">
+                                {{#each tables}}
+                                <div class="sale-table" id="{{_id}}">Bàn {{name}}</div>
+                                {{/each}}
+                            </div>
+                            <div role="tabpanel" class="tab-pane sale-product-container" id="sale-products-tab">
+                                {{#each products}}
+                                <div class="sale-product" id="{{_id}}">{{name}}</div>
+                                {{/each}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-5">
-        <div class="panel panel-default">
-            <div class="panel-heading">Hoá đơn - Bàn số 1</div>
-            <div class="panel-body">
-                Hóa đơn
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">Hoá đơn - {{servingTable}}</div>
+                <div class="panel-body">
+                    {{#each servingProducts}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </div>
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN HÓA ĐƠN
+                    </button>
+                    <button type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
+                    </button>
+                </div>
             </div>
         </div>
     </div>

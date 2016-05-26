@@ -2,17 +2,18 @@
   max-width: 100px;
   min-width: 100px;
   height: 100px;
-  background-color: blue;
-  flex: 1;
+  background-color: #5d5db4;
+  display: inline-block;
   margin: 10px;
+  padding: 10px;
+  color: white;
 }
 
 .sale-product {
-  background-color: green;
+  background-color: #d2994f;
 }
 
-.sale-table-container, .sale-product-container {
-  display: flex !important;
-  flex-wrap: wrap;
+.selected-table, .selected-product {
+  border: 2px solid yellow;
 }
 
