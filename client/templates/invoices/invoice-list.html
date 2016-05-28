@@ -9,6 +9,11 @@
     </div>
     <div class="wrapper food-list">
         <h2>Danh sách hóa đơn</h2>
+        <h4>
+        {{#each invoiceGroups}}
+        <span class="label label-primary">{{name}}</span> 
+        {{/each}}
+        </h4>
         <table class="table table-striped">
             <thead>
                 <tr>
