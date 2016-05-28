@@ -21,6 +21,6 @@ Template.order.helpers({
                     totalPrice += price;
             });
         }
-        return totalPrice;
+        return totalPrice.toString().split(/(?=(?:\d{3})+$)/).join(",");
     }
 });
