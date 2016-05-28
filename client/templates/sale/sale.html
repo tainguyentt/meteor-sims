@@ -7,13 +7,13 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#sale-tables-tab" aria-controls="sale-tables-tab" role="tab" data-toggle="tab">Bàn</a></li>
-                            <li role="presentation"><a href="#sale-products-tab" aria-controls="sale-products-tab" role="tab" data-toggle="tab">Món</a></li>
+                            <li role="presentation"><a href="#sale-products-tab" aria-controls="sale-products-tab" role="tab" data-toggle="{{enableProductsTab}}">Món</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active sale-table-container" id="sale-tables-tab">
                                 {{#each tables}}
-                                <div class="sale-table" id="{{_id}}">Bàn {{name}}</div>
+                                <div id="{{_id}}" class="sale-table {{tableClass this}}">Bàn {{name}}</div>
                                 {{/each}}
                             </div>
                             <div role="tabpanel" class="tab-pane sale-product-container" id="sale-products-tab">
@@ -27,21 +27,53 @@
             </div>
         </div>
         <div class="col-md-5">
-            <div class="panel panel-default">
-                <div class="panel-heading">Hoá đơn - {{servingTable}}</div>
+            <div id="bill" class="panel panel-default">
+                {{#if servingTable}}
+                <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
                 <div class="panel-body">
-                    {{#each servingProducts}}
-                    <li>{{this}}</li>
-                    {{/each}}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên món</th>
+                                <th>Giá tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each servingProducts}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{price}}</td>
+                                <td>
+                                    <a name="{{id}}" href="#" class="remove-product">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><b>Tổng tiền</b></td>
+                                <td><b>{{countTotalPrice}}</b></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
                 <div class="panel-footer text-center">
-                    <button type="button" class="btn btn-default btn-lg">
+                    <button id="printBill" type="button" class="btn btn-default btn-lg">
                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN HÓA ĐƠN
                     </button>
-                    <button type="button" class="btn btn-default btn-lg">
+                    <button type="button" id="checkOut" class="btn btn-default btn-lg">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
                     </button>
                 </div>
+                {{else}}
+                <div class="panel-body">
+                    Chọn bàn để phục vụ
+                </div>
+                {{/if}}
             </div>
         </div>
     </div>

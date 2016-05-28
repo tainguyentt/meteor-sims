@@ -13,6 +13,7 @@
                     <th>Nhóm</th>
                     <th>Giá vốn</th>
                     <th>Giá bán</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,11 @@
                     <td>{{group}}</td>
                     <td>{{cost}}</td>
                     <td>{{price}}</td>
+                    <td>
+                        <a name="{{_id}}" href="#" class="delete-product">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>

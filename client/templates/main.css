@@ -7,13 +7,23 @@
   margin: 10px;
   padding: 10px;
   color: white;
+  cursor: pointer;
 }
 
 .sale-product {
   background-color: #d2994f;
 }
 
-.selected-table, .selected-product {
-  border: 2px solid yellow;
+.sale-product:hover, .sale-table:hover {
+  background-color: red;
+}
+
+@media print {
+  body * {
+    display: none;
+  }
+  body .bill-print {
+    display: block;
+  }
 }
 

@@ -11,6 +11,7 @@
                 <tr>
                     <th>Tên bàn</th>
                     <th>Nhóm</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +19,11 @@
                 <tr>
                     <td>{{name}}</td>
                     <td>{{group}}</td>
+                    <td>
+                        <a name="{{_id}}" href="#" class="delete-table">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>
