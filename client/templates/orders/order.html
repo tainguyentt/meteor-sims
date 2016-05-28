@@ -1,10 +1,16 @@
 <template name="order">
     <div id="bill" class="panel-body">
+        <div class="for-print" style="text-align: center">
+                <b>Ngẫm Cafe</b><br>
+            838/1 Lê Hồng Phong, P.12, Q.10 - 08.6299.5077<br>
+            <b>HÓA ĐƠN</b><br>
+            <hr style="border: 1px dashed black;">
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Tên món</th>
-                    <th>Giá tiền</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
                     <th></th>
                 </tr>
             </thead>
@@ -20,14 +26,12 @@
                     </td>
                 </tr>
                 {{/each}}
-            </tbody>
-            <tfoot>
                 <tr>
                     <td><b>Tổng tiền</b></td>
                     <td><b>{{totalPrice}}</b></td>
                     <td></td>
                 </tr>
-            </tfoot>
+            </tbody>
         </table>
     </div>
 </template>

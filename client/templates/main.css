@@ -17,5 +17,8 @@
 .sale-product:hover, .sale-table:hover {
   background-color: red;
 }
+
+.for-print {
+  display: none;
 }
 

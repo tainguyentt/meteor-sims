@@ -22,7 +22,6 @@ Template.sale.events({
         var newWindow = window.open();
         newWindow.document.write(document.getElementById("bill").innerHTML);
         newWindow.print();
-        newWindow.close();
     }
 });
 
@@ -73,7 +72,7 @@ function getServingProduct(productId) {
 
 function printElement(el) {
     var csslinks = document.getElementsByTagName('link');
-    var css = '';
+    var css = '@media print {}';
     for (var link, i = 0; i < csslinks.length; i++) {
         link = csslinks[i];
         if (link.rel !== 'stylesheet') continue;
