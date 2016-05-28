@@ -1,0 +1,33 @@
+<template name="order">
+    <div id="bill" class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tên món</th>
+                    <th>Giá tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{price}}</td>
+                    <td>
+                        <a name="{{id}}" href="#" class="remove-product">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><b>Tổng tiền</b></td>
+                    <td><b>{{totalPrice}}</b></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</template>

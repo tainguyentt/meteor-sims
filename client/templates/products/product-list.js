@@ -3,9 +3,9 @@ Template.productList.events({
     e.preventDefault();
     Modal.show('productCreateModal');
   },
-  'click .delete-product': function(e) {
+  'click a.delete-product': function(e) {
     e.preventDefault();
-    var productId = e.target.name;
+    var productId = e.currentTarget.name;
     Products.remove(productId);
   }
 });

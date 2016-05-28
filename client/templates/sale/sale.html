@@ -13,12 +13,12 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active sale-table-container" id="sale-tables-tab">
                                 {{#each tables}}
-                                <div id="{{_id}}" class="sale-table {{tableClass this}}">Bàn {{name}}</div>
+                                    <div class="sale-table {{tableClass this}}">Bàn {{name}}</div>
                                 {{/each}}
                             </div>
                             <div role="tabpanel" class="tab-pane sale-product-container" id="sale-products-tab">
                                 {{#each products}}
-                                <div class="sale-product" id="{{_id}}">{{name}}</div>
+                                    <div class="sale-product" id="{{_id}}">{{name}}</div>
                                 {{/each}}
                             </div>
                         </div>
@@ -28,47 +28,19 @@
         </div>
         <div class="col-md-5">
             <div class="panel panel-default">
-                {{#if servingTable}}
-                <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
-                <div id="bill" class="panel-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Tên món</th>
-                                <th>Giá tiền</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each servingProducts}}
-                            <tr>
-                                <td>{{name}}</td>
-                                <td>{{price}}</td>
-                                <td>
-                                    <a name="{{id}}" href="#" class="remove-product">
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td><b>Tổng tiền</b></td>
-                                <td><b>{{countTotalPrice}}</b></td>
-                                <td></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="panel-footer text-center">
-                    <button id="printBill" type="button" class="btn btn-default btn-lg">
-                        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN HÓA ĐƠN
-                    </button>
-                    <button type="button" id="checkOut" class="btn btn-default btn-lg">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
-                    </button>
-                </div>
+                {{#if servingTable}} 
+                    <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
+                    {{#with currentOrder}}
+                        {{> order}}
+                    {{/with}}
+                    <div class="panel-footer">
+                        <button id="printBill" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN
+                        </button>
+                        <button type="button" id="checkOut" class="btn btn-default">
+                            <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
+                        </button>
+                    </div>
                 {{else}}
                 <div class="panel-body">
                     Chọn bàn để phục vụ

@@ -5,7 +5,7 @@ Template.tableList.events({
   },
   'click .delete-table': function(e) {
     e.preventDefault();
-    var tableId = e.target.name;
+    var tableId = e.currentTarget.name;
     Tables.remove(tableId);
   }
 });
