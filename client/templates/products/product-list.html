@@ -3,9 +3,17 @@
         <button id="create-product" type="button" class="btn btn-primary" data-toggle="modal">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm sản phẩm
         </button>
+        <button id="create-product-group" type="button" class="btn btn-primary" data-toggle="modal">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm nhóm
+        </button>
     </div>
     <div class="wrapper food-list">
         <h2>Danh sách sản phẩm</h2>
+        <h4>
+        {{#each productGroups}}
+         <span class="label label-primary">{{name}}</span>
+        {{/each}}
+        </h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -20,7 +28,7 @@
                 {{#each products}}
                 <tr>
                     <td>{{name}}</td>
-                    <td>{{group}}</td>
+                    <td>{{groupName}}</td>
                     <td>{{cost}}</td>
                     <td>{{price}}</td>
                     <td>

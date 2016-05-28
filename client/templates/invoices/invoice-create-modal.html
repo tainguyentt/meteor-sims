@@ -1,36 +1,36 @@
-<template name="productCreateModal">
+<template name="invoiceCreateModal">
     <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Thêm sản phẩm mới</h4>
+                    <h4 class="modal-title">Thêm hóa đơn mới</h4>
                 </div>
                 <div class="modal-body">
                     <form name="table" class="table-form form">
                         <div class="form-group">
-                            <label for="productName">Tên</label>
-                            <input type="text" class="form-control" name="productName" placeholder="vd: Cà phê sữa">
+                            <label for="invoiceName">Tên hóa đơn</label>
+                            <input type="text" class="form-control" name="invoiceName" placeholder="Tên hóa đơn (ngắn gọn)">
                         </div>
                         <div class="form-group">
-                            <label for="productGroup">Nhóm</label>
-                            <select class="form-control" name="productGroup">
-                                <option selected>Chọn nhóm</option>
-                                {{#each productGroups}}
+                            <label for="invoiceGroup">Loại</label>
+                            <select class="form-control" name="invoiceGroup">
+                              <option selected>Chọn loại hóa đơn</option>
+                              {{#each invoiceGroups}}
                                 <option value="{{_id}}">{{name}}</option>
-                                {{/each}}
+                              {{/each}}
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="productCost">Giá gốc</label>
-                            {{> currencyInput name="productCost" placeholder="Giá gốc"}}
+                            <label for="invoiceCost">Chi phí</label>
+                            {{> currencyInput name="invoiceCost" placeholder="Số tiền chi"}}
                         </div>
                         <div class="form-group">
-                            <label for="productPrice">Giá bán</label>
-                            {{> currencyInput name="productPrice" placeholder="Giá bán ra"}}
+                            <label for="invoiceNote">Ghi chú</label>
+                            <input type="text" class="form-control" name="invoiceNote" placeholder="Ghi chú thêm">
                         </div>
                     </form>
                     <h4>
-                    {{#each productGroups}}
+                    {{#each invoiceGroups}}
                     <span class="label label-primary">{{name}}</span> 
                     {{/each}}
                     </h4>

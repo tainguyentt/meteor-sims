@@ -1,0 +1,40 @@
+<template name="invoiceList">
+    <div class="pull-right">
+        <button id="create-invoice" type="button" class="btn btn-primary" data-toggle="modal">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm hóa đơn
+        </button>
+        <button id="create-invoice-group" type="button" class="btn btn-primary" data-toggle="modal">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm nhóm
+        </button>
+    </div>
+    <div class="wrapper food-list">
+        <h2>Danh sách hóa đơn</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ngày tháng</th>
+                    <th>Tên hóa đơn</th>
+                    <th>Nhóm</th>
+                    <th>Số tiền</th>
+                    <th>Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each invoices}}
+                <tr>
+                    <td class="col-md-1">{{> dateTime date=createdAt}}</td>
+                    <td class="col-md-3">{{name}}</td>
+                    <td class="col-md-1">{{groupName}}</td>
+                    <td class="col-md-1">{{cost}}</td>
+                    <td class="col-md-4">{{note}}</td>
+                    <td class="col-md-2">
+                        <a href="#" class="delete-invoice">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

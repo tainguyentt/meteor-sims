@@ -3,9 +3,13 @@ Template.productList.events({
     e.preventDefault();
     Modal.show('productCreateModal');
   },
+  'click #create-product-group': function(e) {
+    e.preventDefault();
+    Modal.show('productGroupCreateModal');
+  },
   'click a.delete-product': function(e) {
     e.preventDefault();
-    var productId = e.currentTarget.name;
+    var productId = this._id;
     Products.remove(productId);
   }
 });

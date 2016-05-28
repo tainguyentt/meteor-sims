@@ -13,7 +13,14 @@
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav">
                     <li class="{{isActiveRoute 'sale'}}">
-                        <a href="{{pathFor 'sale'}}">Bán hàng</a>
+                        <a href="{{pathFor 'sale'}}">
+                           <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Bán hàng
+                        </a>
+                    </li>
+                    <li class="{{isActiveRoute 'invoiceList'}}">
+                        <a href="{{pathFor 'invoiceList'}}">
+                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Sổ thu chi
+                        </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

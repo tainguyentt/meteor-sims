@@ -7,7 +7,8 @@ Template.productCreateModal.events({
     var productPrice = $('form').find('[name=productPrice]');
     var product = {
       name: productName.val(),
-      group: productGroup.val(),
+      groupId: productGroup.val(),
+      groupName: $("select[name='productGroup'] option:selected").text(),
       cost: productCost.val(),
       price: productPrice.val()
     }
@@ -23,4 +24,10 @@ Template.productCreateModal.events({
       }
     });
   }
+});
+
+Template.productCreateModal.helpers({
+    productGroups: function() {
+        return ProductGroups.find();
+    }
 });

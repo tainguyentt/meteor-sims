@@ -1,0 +1,23 @@
+<template name="invoiceGroupCreateModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm nhóm hóa đơn mới</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="invoiceGroup" class="invoice-form form">
+                        <div class="form-group">
+                            <label for="invoiceGroupName">Tên nhóm hóa đơn</label>
+                            <input type="text" class="form-control" name="invoiceGroupName" placeholder="vd: Tiền trái cây">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save">Tạo</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
