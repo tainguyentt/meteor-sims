@@ -5,6 +5,11 @@ Template.sale.events({
         tableElement.addClass('selected-table');
         Session.set('serving-table', { id: this._id, name: tableElement.text() });
         $("a[href='#sale-products-tab']").tab('show');
+
+        //reset selected productGroup
+        Session.set('selected-product-group-id', null);
+        $('li.sale-product-group').removeClass('active');
+        $('li#default-product-group').addClass('active');
     },
     'click .sale-product': function(e) {
         var product = this;
@@ -22,6 +27,11 @@ Template.sale.events({
         var newWindow = window.open();
         newWindow.document.write(document.getElementById("bill").innerHTML);
         newWindow.print();
+    },
+    'click li.sale-product-group>a': function() {
+        if(this) {
+            Session.set('selected-product-group-id', this._id);
+        }
     }
 });
 
@@ -39,6 +49,12 @@ Template.sale.helpers({
     },
     currentOrder: function() {
         return getCurrentOrder();
+    },
+    productsOfSelectedGroup: function() {
+        var selectedProductGroupId = getSelectedProductGroupId();
+        if(getSelectedProductGroupId())
+            return Products.find({groupId: selectedProductGroupId});
+        return Products.find();
     }
 });
 
@@ -67,6 +83,10 @@ function getServingTable() {
 
 function getServingProduct(productId) {
     return Products.findOne(productId);
+}
+
+function getSelectedProductGroupId() {
+    return Session.get('selected-product-group-id');
 }
 
 

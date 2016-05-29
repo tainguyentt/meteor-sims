@@ -10,16 +10,24 @@
                             <li role="presentation"><a href="#sale-products-tab" aria-controls="sale-products-tab" role="tab" data-toggle="{{enableProductsTab}}">Món</a></li>
                         </ul>
                         <!-- Tab panes -->
-                        <div class="tab-content">
+                        <div class="tab-content table-product-container">
                             <div role="tabpanel" class="tab-pane active sale-table-container" id="sale-tables-tab">
                                 {{#each tables}}
-                                    <div class="sale-table {{tableClass this}}">Bàn {{name}}</div>
+                                <div class="sale-table {{tableClass this}}">Bàn {{name}}</div>
                                 {{/each}}
                             </div>
                             <div role="tabpanel" class="tab-pane sale-product-container" id="sale-products-tab">
-                                {{#each products}}
-                                    <div class="sale-product" id="{{_id}}">{{name}}</div>
-                                {{/each}}
+                                <ul class="nav nav-pills">
+                                    <li id="default-product-group" class="sale-product-group" role="presentation"><a href="#products-of-group-tab" data-toggle="tab">Tất cả</a></li>
+                                    {{#each productGroups}}
+                                    <li class="sale-product-group" role="presentation"><a href="#products-of-group-tab" data-toggle="tab">{{name}}</a></li>
+                                    {{/each}}
+                                </ul>
+                                <div id="products-of-group-tab">
+                                    {{#each productsOfSelectedGroup}}
+                                    <div class="sale-product">{{name}}</div>
+                                    {{/each}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -28,19 +36,17 @@
         </div>
         <div class="col-md-5">
             <div class="panel panel-default">
-                {{#if servingTable}} 
-                    <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
-                    {{#with currentOrder}}
-                        {{> order}}
-                    {{/with}}
-                    <div class="panel-footer">
-                        <button id="printBill" type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN
-                        </button>
-                        <button type="button" id="checkOut" class="btn btn-default">
-                            <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
-                        </button>
-                    </div>
+                {{#if servingTable}}
+                <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
+                {{#with currentOrder}} {{> order}} {{/with}}
+                <div class="panel-footer">
+                    <button id="printBill" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN
+                    </button>
+                    <button type="button" id="checkOut" class="btn btn-default">
+                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> THANH TOÁN
+                    </button>
+                </div>
                 {{else}}
                 <div class="panel-body">
                     Chọn bàn để phục vụ
