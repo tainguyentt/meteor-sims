@@ -15,13 +15,13 @@ Template.sale.events({
         var product = this;
         var saleProduct = { name: product.name, id: product._id, price: product.price };
         var order = findOrCreateCurrentOrder();
-        order.products.push(saleProduct);     
+        order.products.push(saleProduct);
         Orders.update(order._id, { $set: { products: order.products } });
     },
     'click #checkOut': function() {
         var tableId = getServingTable().id;
         var order = Orders.findOne({ tableId: tableId, status: 'inprogress' });
-        Orders.update(order._id, { $set: { status: 'done' } });
+        Orders.update(order._id, { $set: { status: 'done', checkOutTime: new Date() } });
     },
     'click #printBill': function() {
         var newWindow = window.open();
@@ -29,7 +29,7 @@ Template.sale.events({
         newWindow.print();
     },
     'click li.sale-product-group>a': function() {
-        if(this) {
+        if (this) {
             Session.set('selected-product-group-id', this._id);
         }
     }
@@ -39,9 +39,10 @@ Template.sale.helpers({
     servingTable: function() {
         return Session.get('serving-table');
     },
-    tableClass: function(table) {
-        if (Session.get('serving-table') && Session.get('serving-table').id === table._id)
-            return 'selected-table';
+    tableClass: function() {
+        var order = Orders.findOne({ tableId: this._id, status: 'inprogress' });
+        if (order)
+            return 'serving-table';
         return '';
     },
     enableProductsTab: function() {
@@ -52,8 +53,8 @@ Template.sale.helpers({
     },
     productsOfSelectedGroup: function() {
         var selectedProductGroupId = getSelectedProductGroupId();
-        if(getSelectedProductGroupId())
-            return Products.find({groupId: selectedProductGroupId});
+        if (getSelectedProductGroupId())
+            return Products.find({ groupId: selectedProductGroupId });
         return Products.find();
     }
 });

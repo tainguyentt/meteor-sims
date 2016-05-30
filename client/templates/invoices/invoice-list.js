@@ -9,7 +9,9 @@ Template.invoiceList.events({
   },
   'click .delete-invoice': function(e) {
     e.preventDefault();
-    var invoiceId = this._id;
-    Invoices.remove(invoiceId);
+    if(confirm("Xóa hóa đơn, OK?")) {
+      var invoiceId = this._id;
+      Invoices.remove(invoiceId);
+    }
   }
 });

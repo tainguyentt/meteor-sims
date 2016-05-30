@@ -14,8 +14,12 @@
   background-color: #d2994f;
 }
 
-.sale-product:hover, .sale-table:hover {
-  background-color: red;
+.sale-table:hover {
+  background-color: #16167d;
+}
+
+.sale-product:hover {
+  background-color: #6c3213;
 }
 
 .table-product-container {
@@ -26,4 +30,19 @@
   display: none;
 }
 
+.serving-table {
+  background: green;
+}
 
+.selected-table {
+  border: solid 2px red;
+}
+
+.sale-tabs {
+  border-bottom: 1px solid #716e6e;
+}
+
+.sale-tabs li.active>a {
+  border: 1px solid #716e6e;
+  border-bottom-color: transparent;
+}

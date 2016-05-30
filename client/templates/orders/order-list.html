@@ -1,0 +1,33 @@
+<template name="orderList">
+    <h2>Danh sách thanh toán bàn</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Thời gian đến</th>
+                <th>Thời gian đi</th>
+                <th>Các món gọi</th>
+                <th>Tổng tiền tiền</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each orders}}
+            <tr>
+                <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
+                <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
+                <td class="col-md-4">
+                    {{#each products}}
+                    <p>{{name}} - {{price}}</p>
+                    {{/each}}
+                </td>
+                <td class="col-md-1">{{totalPrice}}</td>
+                <td class="col-md-2">
+                    <a href="#" class="delete-order">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

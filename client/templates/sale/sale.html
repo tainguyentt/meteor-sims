@@ -5,7 +5,7 @@
                 <div class="panel-body">
                     <div>
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
+                        <ul class="nav nav-tabs sale-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#sale-tables-tab" aria-controls="sale-tables-tab" role="tab" data-toggle="tab">Bàn</a></li>
                             <li role="presentation"><a href="#sale-products-tab" aria-controls="sale-products-tab" role="tab" data-toggle="{{enableProductsTab}}">Món</a></li>
                         </ul>
@@ -13,7 +13,7 @@
                         <div class="tab-content table-product-container">
                             <div role="tabpanel" class="tab-pane active sale-table-container" id="sale-tables-tab">
                                 {{#each tables}}
-                                <div class="sale-table {{tableClass this}}">Bàn {{name}}</div>
+                                <div class="sale-table {{tableClass}}">Bàn {{name}}</div>
                                 {{/each}}
                             </div>
                             <div role="tabpanel" class="tab-pane sale-product-container" id="sale-products-tab">

@@ -1,3 +1,7 @@
 <template name="dateTime">
-  {{formatDate date}}
+  {{#if time}}
+    {{formatDateAndTime date}}
+  {{else}}
+    {{formatDate date}}
+  {{/if}}
 </template>
