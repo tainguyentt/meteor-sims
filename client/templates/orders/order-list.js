@@ -15,6 +15,13 @@ Template.orderList.helpers({
         });
         return totalRevenue.toString().split(/(?=(?:\d{3})+$)/).join(",");
     },
+    yesterdayRevenue: function() {
+        var totalRevenue = 0;
+        this.yesterdayOrders.forEach(function(order) {
+            totalRevenue += calculateTotalPrice(order);
+        });
+        return totalRevenue.toString().split(/(?=(?:\d{3})+$)/).join(",");
+    }
 
 });
 

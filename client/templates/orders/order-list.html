@@ -41,6 +41,41 @@
                 </tbody>
             </table>
         </div>
+        <div role="tabpanel" class="tab-pane active sale-table-container" id="yesterday-revenue-tab">
+            <div>
+              <strong>Tổng doanh thu ngày hôm qua:</strong> {{yesterdayRevenue}}
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Thời điểm đến</th>
+                        <th>Thời gian đi</th>
+                        <th>Các món gọi</th>
+                        <th>Tổng tiền tiền</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each yesterdayOrders}}
+                    <tr>
+                        <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
+                        <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
+                        <td class="col-md-4">
+                            {{#each products}}
+                            <p>{{name}} - {{price}}</p>
+                            {{/each}}
+                        </td>
+                        <td class="col-md-1">{{totalPrice}}</td>
+                        <td class="col-md-2">
+                            <a href="#" class="delete-order">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
         <div role="tabpanel" class="tab-pane sale-table-container" id="revenue-by-date-tab">
             Doanh thu tính theo ngày
         </div>
