@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th>Thời điểm đến</th>
-                        <th>Thời gian ngồi</th>
+                        <th>Thời gian đi</th>
                         <th>Các món gọi</th>
                         <th>Tổng tiền tiền</th>
                         <th>Ghi chú</th>
@@ -24,7 +24,7 @@
                     {{#each todayOrders}}
                     <tr>
                         <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
-                        <td class="col-md-1">{{lengthOfStay}} phút</td>
+                        <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
                         <td class="col-md-4">
                             {{#each products}}
                             <p>{{name}} - {{price}}</p>
