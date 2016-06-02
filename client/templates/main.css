@@ -8,6 +8,7 @@
   padding: 10px;
   color: white;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .sale-product {
