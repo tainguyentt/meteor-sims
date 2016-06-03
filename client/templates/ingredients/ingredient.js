@@ -13,9 +13,9 @@ Template.ingredient.events({
     'click a.save-ingredient-quantity': function(e) {
         e.preventDefault();
         var newAvailableQuantityElement = $('[name=newAvailableQuantity]');
-        var oldAvailableQuantity = parseInt(this.availableQuantity);
-        var newAvailableQuantity = parseInt(newAvailableQuantityElement.val());
-        var newUsedQuantity = parseInt(this.usedQuantity);
+        var oldAvailableQuantity = parseFloat(this.availableQuantity);
+        var newAvailableQuantity = parseFloat(newAvailableQuantityElement.val());
+        var newUsedQuantity = parseFloat(this.usedQuantity);
         if (!isNaN(oldAvailableQuantity) && !isNaN(newAvailableQuantity)) {
           if(oldAvailableQuantity > newAvailableQuantity) {
             newUsedQuantity += oldAvailableQuantity - newAvailableQuantity;

@@ -1,6 +1,5 @@
 Template.currencyInput.events({
     'keyup input': function(event) {
-      console.log(event.which);
         if (event.which >= 37 && event.which <= 40) {
             event.preventDefault();
         }
