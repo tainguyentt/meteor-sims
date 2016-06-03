@@ -7,9 +7,9 @@ Template.sale.events({
         $("a[href='#sale-products-tab']").tab('show');
 
         //reset selected productGroup
-        Session.set('selected-product-group-id', null);
+        Session.set('selected-product-group-id', ProductGroups.findOne()._id);
         $('li.sale-product-group').removeClass('active');
-        $('li#default-product-group').addClass('active');
+        $('li.sale-product-group:first').addClass('active');
     },
     'click .sale-product': function(e) {
         var product = this;
