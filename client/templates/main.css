@@ -47,3 +47,8 @@
   border: 1px solid #716e6e;
   border-bottom-color: transparent;
 }
+
+/* ingredients */
+.edit-ingredient-quantity {
+  margin-right: 10px;
+}

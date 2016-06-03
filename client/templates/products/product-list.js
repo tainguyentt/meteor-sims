@@ -9,7 +9,9 @@ Template.productList.events({
   },
   'click a.delete-product': function(e) {
     e.preventDefault();
-    var productId = this._id;
-    Products.remove(productId);
+    if(confirm("Xóa sản phẩm?")) {
+      var productId = this._id;
+      Products.remove(productId);
+    }
   }
 });

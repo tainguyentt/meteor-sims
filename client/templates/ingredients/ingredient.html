@@ -1,0 +1,33 @@
+<template name="ingredient">
+    <tr>
+        <td>{{name}}</td>
+        <td>{{groupName}}</td>
+        <td>{{unit}}</td>
+        <td class="text-right">{{averagePrice}}</td>
+        <td class="text-right">{{usedQuantity}}</td>
+        {{#if isQuantityEditing}}
+        <td>
+            <input class="form-control text-right" type="text" name="newAvailableQuantity" value="{{availableQuantity}}" />
+        </td>
+        <td>
+            <input class="form-control text-right" type="text" name="newInNeedQuantity" value="{{inNeedQuantity}}" />
+        </td>
+        <td>
+            <a href="#" class="save-ingredient-quantity" title="Lưu">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Lưu
+            </a>
+        </td>
+        {{else}}
+        <td class="text-right">{{availableQuantity}}</td>
+        <td class="text-right">{{inNeedQuantity}}</td>
+        <td class="text-right">
+            <a href="#" class="edit-ingredient-quantity" title="Cập nhật">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cập nhật
+            </a>
+            <a href="#" class="delete-ingredient" title="Xóa">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Xóa
+            </a>
+        </td>
+        {{/if}}
+    </tr>
+</template>

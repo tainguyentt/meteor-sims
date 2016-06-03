@@ -14,12 +14,17 @@
                 <ul class="nav navbar-nav">
                     <li class="{{isActiveRoute 'sale'}}">
                         <a href="{{pathFor 'sale'}}">
-                           <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Bán hàng
+                           <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Bán hàng
                         </a>
                     </li>
                     <li class="{{isActiveRoute 'invoiceList'}}">
                         <a href="{{pathFor 'invoiceList'}}">
-                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Sổ thu chi
+                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Sổ chi
+                        </a>
+                    </li>
+                    <li class="{{isActiveRoute 'ingredientList'}}">
+                        <a href="{{pathFor 'ingredientList'}}">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nguyên liệu
                         </a>
                     </li>
                 </ul>

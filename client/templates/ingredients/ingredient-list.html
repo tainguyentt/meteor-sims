@@ -1,0 +1,38 @@
+<template name="ingredientList">
+    <div class="pull-right">
+        <button id="create-ingredient" type="button" class="btn btn-primary" data-toggle="modal">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm nguyên liệu
+        </button>
+    </div>
+    <div class="wrapper food-list">
+        <h2>Danh sách nguyên liệu</h2>
+        <h4>
+         <span class="label label-primary">Cà phê</span>
+         <span class="label label-primary">Sữa</span>
+         <span class="label label-primary">Trà</span>
+         <span class="label label-primary">Trái cây</span>
+         <span class="label label-primary">Bột</span>
+         <span class="label label-primary">Siro</span>
+        <span class="label label-primary">Nước ngọt</span>
+        </h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Nhóm</th>
+                    <th>Đơn vị</th>
+                    <th>Giá trên 1 đơn vị</th>
+                    <th>Đã dùng</th>
+                    <th>Hiện có</th>
+                    <th>Cần mua</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ingredients}}
+                    {{> ingredient}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
