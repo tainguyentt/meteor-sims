@@ -1,0 +1,18 @@
+<template name="noteList">
+    <label>Ghi chú mới</label>
+    <div class="input-group">
+      <input id="new-note-content" type="text" class="form-control">
+      <span class="input-group-btn">
+        <button id="new-note-command"  class="btn btn-default" type="button">Gửi</button>
+      </span>
+    </div>
+    <label>Các ghi chú gần đây</label>
+    <ul class="list-group">
+        {{#each notes}}
+        <li class="list-group-item">
+            <span class="badge">{{author}}</span> 
+            {{content}}
+        </li>
+        {{/each}}
+    </ul>
+</template>
