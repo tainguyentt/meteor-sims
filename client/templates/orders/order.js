@@ -26,18 +26,18 @@ Template.order.helpers({
         var order = Template.currentData();
         if (order) {
             order.products.forEach(function(product) {
-                var price = parseInt(product.price.replace(',', ''));
+                var price = commaToNumberFormat(product.price);
                 if (!isNaN(price))
                     totalPrice += price;
             });
         }
         var discountAmount;
         if(order.discountAmount) {
-            discountAmount = parseInt(order.discountAmount.replace(',', ''));
+            discountAmount = commaToNumberFormat(order.discountAmount);
         }
         if (!isNaN(discountAmount))
             totalPrice -= discountAmount;
-        return totalPrice.toString().split(/(?=(?:\d{3})+$)/).join(",");
+        return numberToCommaFormat(totalPrice);
     },
     editDiscount: function() {
         return Session.equals('edit-discount', true);
