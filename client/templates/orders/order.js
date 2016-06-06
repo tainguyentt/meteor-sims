@@ -7,6 +7,16 @@ Template.order.events({
         var products = order.products;
         products.pop(removedProduct);
         Orders.update(order._id, { $set: { products: products } });
+    },
+    'click .edit-discount': function(e) {
+        e.preventDefault();
+        Session.set('edit-discount', true);
+    },
+    'click .save-discount': function(e) {
+        e.preventDefault();
+        Session.set('edit-discount', false);
+        var discountAmount = $("[name='discountAmount']").val();
+        Orders.update(this._id, { $set: { discountAmount: discountAmount } });
     }
 });
 
@@ -21,6 +31,15 @@ Template.order.helpers({
                     totalPrice += price;
             });
         }
+        var discountAmount;
+        if(order.discountAmount) {
+            discountAmount = parseInt(order.discountAmount.replace(',', ''));
+        }
+        if (!isNaN(discountAmount))
+            totalPrice -= discountAmount;
         return totalPrice.toString().split(/(?=(?:\d{3})+$)/).join(",");
+    },
+    editDiscount: function() {
+        return Session.equals('edit-discount', true);
     }
 });

@@ -63,7 +63,7 @@ function findOrCreateCurrentOrder() {
     var tableId = getServingTable().id;
     var order = findCurrentOrderOf(tableId);
     if (!order) {
-        var orderId = Orders.insert({ tableId: tableId, status: 'inprogress', checkInTime: new Date(), products: [] });
+        var orderId = Orders.insert({ tableId: tableId, status: 'inprogress', checkInTime: new Date(), discountAmount: 0, products: [] });
         order = findCurrentOrderOf(tableId);
     }
     return order;

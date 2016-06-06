@@ -1,0 +1,22 @@
+<template name="discount">
+    <td>
+        Chiết khấu
+    </td>
+    <td>
+        {{#if discountBy 'percent'}}
+            <input /> %
+        {{else}}
+            {{#if discountBy 'amount'}}
+                <input /> vnd
+            {{else}}
+                0
+            {{/if}}
+        {{/if}}
+    </td>
+    <td>
+        <select id="discount-type-selection">
+            <option value="percent" selected="true">%</option>
+            <option value="amount">VNĐ</option>
+        </select>
+    </td>
+</template>
