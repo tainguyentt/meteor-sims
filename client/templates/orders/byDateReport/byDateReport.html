@@ -1,7 +1,8 @@
 <template name="byDateReport">
     <tr>
         <td>{{> dateTime date=day}}</td>
-        <td>{{> currencyOutput amount=cost}}</td>
-        <td></td>
+        <td>{{> currencyOutput amount=revenue}}</td>
+        <td>{{> currencyOutput amount=expense}}</td>
+        <td>{{> currencyOutput amount=profit}}</td>
     </tr>
 </template>
