@@ -9,7 +9,7 @@
     <div class="tab-content table-product-container">
         <div role="tabpanel" class="tab-pane active sale-table-container" id="today-revenue-tab">
             <div>
-              <strong>Tổng doanh thu ngày hôm nay:</strong> {{todayRevenue}}
+                <strong>Tổng doanh thu ngày hôm nay:</strong> {{todayRevenue}}
             </div>
             <table class="table table-striped">
                 <thead>
@@ -17,34 +17,36 @@
                         <th>Thời điểm đến</th>
                         <th>Thời gian đi</th>
                         <th>Các món gọi</th>
-                        <th>Tổng tiền tiền</th>
-                        <th>Ghi chú</th>
+                        <th>Giảm giá</th>
+                        <th>Tổng tiền</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each todayOrders}}
-                    <tr>
-                        <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
-                        <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
-                        <td class="col-md-4">
-                            {{#each products}}
-                            <p>{{name}} - {{price}}</p>
-                            {{/each}}
-                        </td>
-                        <td class="col-md-1">{{totalPrice}}</td>
-                        <td class="col-md-2">
-                            <a href="#" class="delete-order">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
+                            <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
+                            <td class="col-md-4">
+                                {{#each products}}
+                                    <p>{{name}} - {{price}}</p>
+                                {{/each}}
+                            </td>
+                            <td class="col-md-1">{{discountAmount}}</td>
+                            <td class="col-md-1">{{totalPrice}}</td>
+                            <td class="col-md-2">
+                                <a href="#" class="delete-order">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
                     {{/each}}
                 </tbody>
             </table>
         </div>
         <div role="tabpanel" class="tab-pane sale-table-container" id="yesterday-revenue-tab">
             <div>
-              <strong>Tổng doanh thu ngày hôm qua:</strong> {{yesterdayRevenue}}
+                <strong>Tổng doanh thu ngày hôm qua:</strong> {{yesterdayRevenue}}
             </div>
             <table class="table table-striped">
                 <thead>
@@ -52,36 +54,68 @@
                         <th>Thời điểm đến</th>
                         <th>Thời gian đi</th>
                         <th>Các món gọi</th>
-                        <th>Tổng tiền tiền</th>
+                        <th>Tổng tiền</th>
                         <th>Ghi chú</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each yesterdayOrders}}
-                    <tr>
-                        <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
-                        <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
-                        <td class="col-md-4">
-                            {{#each products}}
-                            <p>{{name}} - {{price}}</p>
-                            {{/each}}
-                        </td>
-                        <td class="col-md-1">{{totalPrice}}</td>
-                        <td class="col-md-2">
-                            <a href="#" class="delete-order">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
+                            <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
+                            <td class="col-md-4">
+                                {{#each products}}
+                                    <p>{{name}} - {{price}}</p>
+                                {{/each}}
+                            </td>
+                            <td class="col-md-1">{{totalPrice}}</td>
+                            <td class="col-md-2">
+                                <a href="#" class="delete-order">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
                     {{/each}}
                 </tbody>
             </table>
         </div>
         <div role="tabpanel" class="tab-pane sale-table-container" id="revenue-by-date-tab">
-            Doanh thu tính theo ngày
+            <div>
+                <strong>Doanh thu tính theo ngày</strong>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tháng</th>
+                        <th>Tổng tiền</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each dailyReports}}
+                        {{> byDateReport}}
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
         <div role="tabpanel" class="tab-pane sale-table-container" id="revenue-by-month-tab">
-            Doanh thu tính theo tháng
+            <div>
+                <strong>Doanh thu tính theo tháng</strong>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tháng</th>
+                        <th>Tổng tiền</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each monthlyReports}}
+                        {{> byMonthReport}}
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </template>

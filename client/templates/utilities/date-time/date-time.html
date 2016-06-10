@@ -2,6 +2,10 @@
   {{#if time}}
     {{formatDateAndTime date}}
   {{else}}
-    {{formatDate date}}
+    {{#if month}}
+      {{formatMonth date}}
+    {{else}}
+      {{formatDate date}}
+    {{/if}}
   {{/if}}
 </template>
