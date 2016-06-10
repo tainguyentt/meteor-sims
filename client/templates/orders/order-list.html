@@ -1,5 +1,8 @@
 <template name="orderList">
     <h2>Báo cáo bán hàng</h2>
+    <div>
+        <strong>Tổng số dư hiện tại:</strong> {{> currencyOutput amount=totalProfit}}
+    </div>
     <ul class="nav nav-pills">
         <li class="sale-product-group active" role="presentation"><a href="#today-revenue-tab" data-toggle="tab">Hôm nay</a></li>
         <li class="sale-product-group" role="presentation"><a href="#yesterday-revenue-tab" data-toggle="tab">Hôm qua</a></li>

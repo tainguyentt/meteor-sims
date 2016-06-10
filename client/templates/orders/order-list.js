@@ -96,6 +96,20 @@ Template.orderList.helpers({
             result.push({ month: monthKey, revenue: totalRevenue, expense: expense, profit: totalProfit });
         }
         return result;
+    },
+    totalProfit: function() {
+        var totalExpense = 0;
+        this.allInvoices.forEach(function(invoice) {
+            var expense = commaToNumberFormat(invoice.cost);
+            if(!isNaN(expense))
+                totalExpense += expense;
+        });
+
+        var totalRevenue = 0;
+        this.allOrders.forEach(function(order) {
+            totalRevenue += calculateTotalPrice(order);
+        });
+        return totalRevenue - totalExpense;
     }
 });
 
