@@ -3,5 +3,5 @@ numberToCommaFormat = function(dataInNumber) {
 }
 
 commaToNumberFormat = function(dataInComma) {
-  return parseInt(dataInComma.replace(',', ''));
+  return parseInt(dataInComma.split(',').join(''));
 }
