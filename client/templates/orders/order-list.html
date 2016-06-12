@@ -22,6 +22,7 @@
                         <th>Các món gọi</th>
                         <th>Giảm giá</th>
                         <th>Tổng tiền</th>
+                        <th>Ghi chú</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -30,13 +31,14 @@
                         <tr>
                             <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
                             <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
-                            <td class="col-md-4">
+                            <td class="col-md-2">
                                 {{#each products}}
-                                    <p>{{name}} - {{price}}</p>
+                                    {{name}},  
                                 {{/each}}
                             </td>
                             <td class="col-md-1">{{discountAmount}}</td>
                             <td class="col-md-1">{{totalPrice}}</td>
+                            <td class="col-md-2">{{note}}</td>
                             <td class="col-md-2">
                                 <a href="#" class="delete-order">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -57,8 +59,10 @@
                         <th>Thời điểm đến</th>
                         <th>Thời gian đi</th>
                         <th>Các món gọi</th>
+                        <th>Giảm giá</th>
                         <th>Tổng tiền</th>
                         <th>Ghi chú</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,12 +70,14 @@
                         <tr>
                             <td class="col-md-1">{{> dateTime time=true date=checkInTime}}</td>
                             <td class="col-md-1">{{> dateTime time=true date=checkOutTime}}</td>
-                            <td class="col-md-4">
+                            <td class="col-md-2">
                                 {{#each products}}
-                                    <p>{{name}} - {{price}}</p>
+                                    {{name}},  
                                 {{/each}}
                             </td>
+                            <td class="col-md-1">{{discountAmount}}</td>
                             <td class="col-md-1">{{totalPrice}}</td>
+                            <td class="col-md-2">{{note}}</td>
                             <td class="col-md-2">
                                 <a href="#" class="delete-order">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

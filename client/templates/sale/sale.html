@@ -37,7 +37,9 @@
             <div class="panel panel-default">
                 {{#if servingTable}}
                 <div class="panel-heading">Hoá đơn - {{servingTable.name}}</div>
-                {{#with currentOrder}} {{> order}} {{/with}}
+                {{#with currentOrder}} 
+                    {{> order}} 
+                {{/with}}
                 <div class="panel-footer">
                     <button id="printBill" type="button" class="btn btn-default">
                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span> IN
