@@ -1,70 +1,72 @@
 <template name="order">
-    <div id="bill" class="panel-body">
-        <div class="for-print" style="text-align: center; font-size:12px;">
-            <b>Ngẫm Cafe</b>
-            <br> 839/1 Lê Hồng Phong, p12, q10
-            <br>
-            <b style="font-size:14px;">HÓA ĐƠN</b>
-            <br>
-            <hr style="border: 1px dashed black;">
-        </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Tên</th>
-                    <th>Giá</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each products}}
+    <div class="panel-body">
+        <div id="bill">
+            <div class="for-print" style="text-align: center;font-size:12px;">
+                <b>Ngẫm Cafe</b>
+                <br> 839/1 Lê Hồng Phong, p12, q10
+                <br>
+                <b style="font-size:14px;">HÓA ĐƠN</b>
+                <br>
+                <hr style="border: 1px dashed black;">
+            </div>
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{price}}</td>
-                        <td>
-                            <a name="{{id}}" href="#" class="remove-product" title="Xóa món này">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </a>
-                        </td>
+                        <th>Tên</th>
+                        <th>Giá</th>
+                        <th></th>
                     </tr>
-                {{/each}}
-                <tr>
-                    <td>
-                        <i>Chiết khấu</i>
-                    </td>
-                    {{#if editDiscount}}
+                </thead>
+                <tbody>
+                    {{#each products}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{price}}</td>
+                            <td>
+                                <a name="{{id}}" href="#" class="remove-product" title="Xóa món này">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    <tr>
                         <td>
-                            {{> currencyInput name="discountAmount" value=discountAmount}}
+                            <i>Chiết khấu</i>
                         </td>
-                        <td>
-                            <a href="#" class="save-discount" title="Lưu">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Lưu
-                            </a>
-                        </td>
-                    {{else}}
-                        <td>
-                            <i>{{discountAmount}}</i>
-                        </td>
-                        <td>
-                            <a href="#" class="edit-discount" title="Sửa chiết khấu">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </a>
-                        </td>
-                    {{/if}}
-                </tr>
-                <tr>
-                    <td><b>Tổng tiền</b></td>
-                    <td><b>{{totalPrice}}</b></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="for-print" style="text-align: center;font-size:12px;">
-            <hr style="border: 1px dashed black;">Cảm ơn quý khách.
+                        {{#if editDiscount}}
+                            <td>
+                                {{> currencyInput name="discountAmount" value=discountAmount}}
+                            </td>
+                            <td>
+                                <a href="#" class="save-discount" title="Lưu">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Lưu
+                                </a>
+                            </td>
+                        {{else}}
+                            <td>
+                                <i>{{discountAmount}}</i>
+                            </td>
+                            <td>
+                                <a href="#" class="edit-discount" title="Sửa chiết khấu">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td><b>Tổng tiền</b></td>
+                        <td><b>{{totalPrice}}</b></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="for-print" style="text-align: center;font-size:12px;">
+                <hr style="border: 1px dashed black;">Cảm ơn quý khách.
+            </div>
         </div>
-    </div>
-        <!-- <div class="order-note">
+        <div class="order-note">
             <label for="orderNote">Ghi chú: </label>
             <input type="text" name="orderNote" class="form-control" placeholder="Khách quen, Khách Facebook...">
-        </div> -->
+        </div>
+    </div>
 </template>

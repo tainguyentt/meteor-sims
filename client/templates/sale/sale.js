@@ -20,8 +20,7 @@ Template.sale.events({
     },
     'click #checkOut': function() {
         var tableId = getServingTable().id;
-        // var orderNote = $("[name='orderNote']").val();
-        var orderNote = "";
+        var orderNote = $("[name='orderNote']").val();
         var order = Orders.findOne({ tableId: tableId, status: 'inprogress' });
         Orders.update(order._id, { $set: { status: 'done', checkOutTime: new Date(), note: orderNote } });
     },
