@@ -70,16 +70,17 @@ Template.orderList.helpers({
             truncateToMonth(invoice.createdAt);
             return invoice.createdAt;
         });
+
         var invoiceReports = new Map();
         for (var monthKey in groupedInvoices) {
             var monthRecords = groupedInvoices[monthKey];
-            var totalPrice = 0;
-            monthRecords.forEach(function(invoice) {
-                var expense = commaToNumberFormat(invoice.cost);
-                if(!isNaN(expense))
-                    totalPrice += expense;
-            });
-            invoiceReports.set(monthKey, totalPrice);
+            var invoiceGroupDetails = [];
+            var categorizedMonthlyRecords = _.groupBy(monthRecords, 'groupName');
+            for(var invoiceGroupKey in categorizedMonthlyRecords) {
+                invoiceGroupDetails.push({group: invoiceGroupKey, expense: calculateTotalExpense(categorizedMonthlyRecords[invoiceGroupKey])});
+            }
+
+            invoiceReports.set(monthKey, {monthlyExpense: calculateTotalExpense(monthRecords), groupDetails: invoiceGroupDetails});
         }
 
         var result = [];
@@ -89,11 +90,11 @@ Template.orderList.helpers({
             monthRecords.forEach(function(order) {
                 totalRevenue += calculateTotalPrice(order);
             });
-            var expense = invoiceReports.get(monthKey);
+            var expense = invoiceReports.get(monthKey).monthlyExpense;
             if(!expense)
                 expense = 0;
             var totalProfit = totalRevenue - expense;
-            result.push({ month: monthKey, revenue: totalRevenue, expense: expense, profit: totalProfit });
+            result.push({ month: monthKey, revenue: totalRevenue, expense: expense, groupDetails: invoiceReports.get(monthKey).groupDetails, profit: totalProfit });
         }
         return result;
     },
@@ -152,4 +153,14 @@ function truncateToDay(time){
     time.setSeconds(0);
     time.setMinutes(0);
     time.setHours(0);
+}
+
+function calculateTotalExpense(invoices){
+    var totalExpense = 0;
+    invoices.forEach(function(invoice) {
+        var expense = commaToNumberFormat(invoice.cost);
+        if(!isNaN(expense))
+            totalExpense += expense;
+    });
+    return totalExpense;
 }

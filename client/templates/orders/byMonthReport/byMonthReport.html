@@ -2,7 +2,14 @@
     <tr>
         <td>{{> dateTime month=true date=month}}</td>
         <td>{{> currencyOutput amount=revenue}}</td>
-        <td>{{> currencyOutput amount=expense}}</td>
+        <td>{{> currencyOutput amount=expense}}
+          <br>(Chi tiết:
+          {{#each groupDetails}}
+            <br>
+            {{group}}: {{> currencyOutput amount=expense}}
+          {{/each}}
+          )
+        </td>
         <td>{{> currencyOutput amount=profit}}</td>
     </tr>
 </template>
