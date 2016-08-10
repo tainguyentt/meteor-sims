@@ -47,8 +47,8 @@ Template.orderList.helpers({
             return product.name;
         });
         let result = [];
-        for(let productName in productSet) {
-            result.push({name: productName, count: productSet[productName]});
+        for (let productName in productSet) {
+            result.push({ name: productName, count: productSet[productName] });
         }
         return result;
     },
@@ -216,7 +216,10 @@ function getSelectedDurationOrders() {
     return Orders.find({
         status: 'done',
         $where: function() {
-            return this.checkInTime.getDate() >= fromDate.getDate() && this.checkInTime.getMonth() >= fromDate.getMonth() && this.checkInTime.getYear() >= fromDate.getYear() && this.checkInTime.getDate() <= toDate.getDate() && this.checkInTime.getMonth() <= toDate.getMonth() && this.checkInTime.getYear() <= toDate.getYear();
+            this.checkInTime.setHours(0, 0, 0, 0);
+            fromDate.setHours(0, 0, 0, 0);
+            toDate.setHours(0, 0, 0, 0);
+            return this.checkInTime >= fromDate && this.checkInTime <= toDate;
         }
     });
 }
