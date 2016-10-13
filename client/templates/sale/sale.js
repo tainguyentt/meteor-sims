@@ -64,7 +64,7 @@ function findOrCreateCurrentOrder() {
     var tableId = getServingTable().id;
     var order = findCurrentOrderOf(tableId);
     if (!order) {
-        var orderAttr = { tableId: tableId, status: 'inprogress', discountAmount: 0, products: [] };
+        var orderAttr = { tableId: tableId, status: 'inprogress', discountAmount: 0, payment: 0, products: [] };
         Meteor.call('insertOrder', orderAttr, function(error, result) {
             if(error) {
                 alert("Bị lỗi rồi, thử lại xem");
