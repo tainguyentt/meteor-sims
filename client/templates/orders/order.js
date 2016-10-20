@@ -55,6 +55,9 @@ Template.order.helpers({
 			payment = commaToNumberFormat(payment);
 		}
 		var change = payment - totalPrice;
+		if(change < 0) {
+			change = 0;
+		}
 		return numberToCommaFormat(change);
 	},
 	editDiscount: function () {
