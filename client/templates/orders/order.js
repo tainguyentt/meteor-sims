@@ -43,6 +43,11 @@ Template.order.events({
 });
 
 Template.order.helpers({
+	checkoutTime: function() {
+		var date = new Date()
+		var time = moment(date).format("HH:mm  MM/DD/YY");
+		return time;
+	},
 	totalPrice: function () {
 		var order = Template.currentData();
 		return numberToCommaFormat(countTotalPrice(order));
